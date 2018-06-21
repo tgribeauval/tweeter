@@ -11,7 +11,7 @@ function someMilliseconds() {
   return Math.floor(Math.random() * 400) + 100;
 }
 
-module.exports = function simulateDelay(callback) {
+module.exports = function simulateDelay(callback) { // <--- Ask about this line.
   setTimeout(callback, someMilliseconds());
 }
 

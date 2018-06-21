@@ -6,27 +6,80 @@
 
     <!-- External CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300i,400,700i" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+
 
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="./styles/nav.css">
 
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+
+
+
   </head>
 
   <body>
 
     <!-- Top nav bar (fixed) -->
     <nav id="nav-bar">
-      <img class="logo" src="/images/bird.png" width="80px" height="80px">
+      <img class="logo" src="/images/bird.png">
       <span class="header">Tweeter</span>
+      <div id="buttondiv">
+        <a href="#" id="myButton">Compose</a>
+      </div>
+      <script type="text/javascript">
+        $('#myButton').on('click', function() {
+          $( ".new-tweet" ).slideToggle( "fast")
+        });
+      </script>
     </nav>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
+      <section class="new-tweet">
+        <h2 class="composetweet">Compose Tweet</h2>
+        <form  method="POST" action="/tweets/" id ="textform">
+          <textarea class = "textarea" name="text" placeholder="What are you humming about?"></textarea>
+            <div class = "tweetsubmitbox">
+              <input type="submit" value="Tweet">
+              <span class="counter">140</span>
+            </div>
+        </form>
+      </section>
+      <section id="tweetcontainer">
+        <article class="tweet">
+          <header class="tweetheader">
+            <img class="userlogo" src="https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png" alt="MDN" >
+            <p class ="username">Thierry Gribeauval</p>
+            <p class ="useraccount"> @tgribeauval </p>
+          </header>
+            <div class='tweetcontent'>
+              <p class='thetweet'> tacters becausesomething real quick, real quick,something real quick, </p>
+            </div>
+          <footer class='tweetfooter'>
+            <p class='tweettime'>10 mins ago</p>
+            <div class='footerlogos'>
+              <div class='logo1'>
+                <i class="fas fa-retweet"></i>
+              </div>
+              <div class='logo2'>
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class='logo3'>
+                <i class="fas fa-flag"></i>
+              </div>
+            </div>
+          </footer>
+        </article>
+      </section>
     </main>
 
   </body>
