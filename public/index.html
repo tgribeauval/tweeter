@@ -1,74 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>.   <!-- Document type is set to HTML -->
+<html lang="en"> <!-- Document language is set to english-->
   <head>
     <!-- Meta Information -->
-    <title>Tweeter - Home Page</title>
+    <title>Tweeter - Home Page</title> <!-- <title> tags are used to give our web app a title in the tab bar-->
 
     <!-- External CSS -->
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300i,400,700i" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" /> <!-- Linking my external CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300i,400,700i" rel="stylesheet"> <!-- Linking my fonts from google -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"> <!-- Linking my icons from fontawesome-->
 
 
 
     <!-- App CSS -->
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="./styles/nav.css">
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" /> <!-- Linking my layout.css file-->
+    <link rel="stylesheet" type="text/css" href="./styles/nav.css"> <!-- Linking my nav.css file  -->
 
     <!-- External JS -->
-    <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script> <!-- <script> tags are used to link Javscript, this line is linking an external JS file-->
 
     <!-- App JS -->
-    <script type="text/javascript" src="/scripts/app.js"></script>
-    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
-
-
+    <script type="text/javascript" src="/scripts/app.js"></script> <!-- Linking my app.js file-->
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script> <!-- Linking my composer-char-counter.js -->
 
   </head>
-
-  <body>
-
-    <!-- Top nav bar (fixed) -->
-    <nav id="nav-bar">
-      <img class="logo" src="/images/bird.png">
-      <span class="header">Tweeter</span>
-      <div id="buttondiv">
-        <a href="#" id="myButton">Compose</a>
-      </div>
-      <script type="text/javascript">
-        $('#myButton').on('click', function() {
-          $( ".new-tweet" ).slideToggle( "fast")
+  <body> <!-- Opening our body tag -->
+    <nav id="nav-bar"> <!-- <nav> tags are used to create navigation bars. Here we create on and give it an id of 'nav-bar' -->
+      <img class="logo" src="/images/bird.png"> <!-- <img> tagd are used to insert images on our web page. Here I insert an image with the class 'logo' into my nav bar -->
+      <span class="header">Tweeter</span> <!-- The span tag is like the div tag. It has no meaning at all and is mostly used for styling by using an id or class. Here we give our span a class of "header"-->
+      <div id="buttondiv"> <!-- the <div> tag here is used to contain my button and I give it an id of 'buttondiv'-->
+        <a href="#" id="myButton">Compose</a> <!-- Buttons can be created using the <button>, <input> or <a> tags. I used an <a> tag and give it an id of "myButton" -->
+      </div> <!-- Closing my div -->
+      <script type="text/javascript"> // <script> tags are used to code Javascript in an HTML file
+        $('#myButton').on('click', function() { //. Using the #myButton id on line 31, here are creating an event handler on our button. When some clicks on our button we want to run a function.
+          $( ".new-tweet" ).slideToggle( "fast") // Here we selecting the class. ".new-tweet from line 42. this basically means, when my button is clicked, please slideToggle my section.
         });
-      </script>
-    </nav>
+      </script> <!-- Closing our script tag-->
+    </nav> <!-- Closing our nav tag -->
 
     <!-- Page-specific (main) content here -->
-    <main class="container">
-      <section class="new-tweet">
-        <h2 class="composetweet">Compose Tweet</h2>
-        <form  method="POST" action="/tweets/" id ="textform">
-          <textarea class = "textarea" name="text" placeholder="What are you humming about?"></textarea>
-            <div class = "tweetsubmitbox">
-              <input type="submit" value="Tweet">
-              <span class="counter">140</span>
-            </div>
-        </form>
-      </section>
-      <section id="tweetcontainer">
-        <article class="tweet">
-          <header class="tweetheader">
-            <img class="userlogo" src="https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png" alt="MDN" >
-            <p class ="username">Thierry Gribeauval</p>
-            <p class ="useraccount"> @tgribeauval </p>
-          </header>
-            <div class='tweetcontent'>
-              <p class='thetweet'> tacters becausesomething real quick, real quick,something real quick, </p>
-            </div>
-          <footer class='tweetfooter'>
-            <p class='tweettime'>10 mins ago</p>
-            <div class='footerlogos'>
-              <div class='logo1'>
-                <i class="fas fa-retweet"></i>
+    <main class="container"> <!-- Opening our main tag and giving it a class of "container" -->
+      <section class="new-tweet"> <!-- Here we are opening a <section> tag, like the name says, this defines a section on a web page. The section we are defining will hold our compose tweet form-->
+        <h2 class="composetweet">Compose Tweet</h2> <!-- Our new-tweet section "title" -->
+        <form  method="POST" action="/tweets/" id ="textform"> <!-- Here we are opening a <form> tag which defines a form that is used to collect user input: we are giving it an of "textform", our method is POST, which is basically taking the user input and "posting" it to our /tweets/ directory -->
+          <textarea class = "textarea" name="text" placeholder="What are you humming about?"></textarea>  <!-- <textarea> tags are used to define a multi-line text input control. we are giving it a class of "textarea" and a name of "text"  -->
+            <div class = "tweetsubmitbox"> <!-- Opening a div tag which will contain our  -->
+              <input type="submit" value="Tweet"> <!-- The <input> tag specifies an input field where the user can enter data. An input field can vary in many ways, depending on the type attribute. It's type is "submit" which means that this input will submit data, we are giving in a value of "Tweet"-->
+              <span class="counter">140</span> <!-- Opening a <span> tag and giving it a class of "counter" -->
+            </div> <!-- Close the div tag-->
+        </form> <!-- Closing the form tag-->
+      </section> <!-- Closing the section tag -->
+      <section id="tweetcontainer"> <!-- Here we are opening another section. This section will contain everything between these the opening and closing tags -->
+        <article class="tweet"> <!-- Opening an article tag and giving it a class of "tweet" -->
+          <header class="tweetheader">  <!-- Opening a <header> tag and giving it a class of "tweetheader"-->
+            <img class="userlogo" src="https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png" alt="MDN" > <!-- Opening an <img>, inserting a logo and giving it a class of "userlogo" -->
+            <p class ="username">Thierry Gribeauval</p> <!-- Opening a <p> tag and giving it a class of "username" -->
+            <p class ="useraccount"> @tgribeauval </p> <!-- Opening a <p> tag and giving it a class of "useraccount" -->
+          </header> <!-- Closing the header tag -->
+            <div class='tweetcontent'> <!-- Opening a <div> tag and giving it a class of "tweetcontent", this div will hold a <p> tag -->
+              <p class='thetweet'> tacters becausesomething real quick, real quick,something real quick, </p> <!-- opening a <p> tag and giving it a class of "thetweet" -->
+            </div> <!-- Closing the <div> tag -->
+          <footer class='tweetfooter'> <!-- Opening a <footer> tag and giving it a class of "tweetfooter"-->
+            <p class='tweettime'>10 mins ago</p> <!-- Opening a <p> tag and giving it a class of "tweettime" -->
+            <div class='footerlogos'> <!-- Opening a <div> tag and will contain multiple logos which were provided to us via -->
+              <div class='logo1'> <!-- This might be bad practice, but I used <div> tags on each image to contain them within there on container -->
+                <i class="fas fa-retweet"></i> <!-- This logos where imported via the fontawsome <link> on line 10 -->
               </div>
               <div class='logo2'>
                 <i class="fas fa-heart"></i>
@@ -76,11 +71,11 @@
               <div class='logo3'>
                 <i class="fas fa-flag"></i>
               </div>
-            </div>
-          </footer>
-        </article>
-      </section>
-    </main>
+            </div> <!-- Closing the <div> tag -->
+          </footer> <!-- Closing the <footer> tag -->
+        </article> <!-- Closing the <article> tag -->
+      </section> <!--  Closing the <section> tag -->
+    </main> <!-- Closing the <main> tag -->
 
-  </body>
-</html>
+  </body> <!-- Closing the <body> tag -->
+</html> <!-- Closing the <html>-->

@@ -74,7 +74,7 @@ $(document).ready(function() {
     let $img = $('<img>').addClass('userlogo').attr('src', tweet.user.avatars.small)
     let $username = $(`<p>${tweet.user.name}</p>`).addClass('username')
     let $useraccount = $(`<p>${tweet.user.handle}</p>`).addClass('useraccount')
-    let $tweetcontent = $(`<p>${tweet.content.text}</p>`).addClass('thetweet').text()
+    let $tweetcontent = $(`<p>${tweet.content.text}</p>`).addClass('thetweet')
     let $tweettime = $(`<p>${tweet.created_at}</p>`).addClass('tweettime footerlogo')
 
     // let $tweetcontent1 =  $(`<p>${tweet.content.text}</p>`).text()
@@ -134,9 +134,7 @@ $("#textform").submit(function (event) {
 //   alert('hey');
 // });
 
-$('#myButton').on('click', function() {
-  alert('test it out')
-});
+
 
 
 
