@@ -1,5 +1,5 @@
-// Fake data taken from tweets.json
-const data = [
+
+const data = [ // hardcoded database
   {
     "user": {
       "name": "Newton",
@@ -45,13 +45,11 @@ const data = [
     "created_at": 1461113796368
   }
 ];
-$(document).ready(function() {
 
+$(document).ready(function() {
   function renderTweets(tweets) {
-    // loops through tweets. are objects within objects within an array.
    for (var tweet of tweets) {
-    // calls createTweetElement for each tweet
-    var createdTweet= createTweetElement(tweet);
+    var createdTweet= createTweetElement(tweet)
     $("#tweetcontainer").prepend(createdTweet)
    }
   }
@@ -64,7 +62,7 @@ $(document).ready(function() {
     });
   }
 
- function createTweetElement(tweet) {
+  function createTweetElement(tweet) {
 
     let $tweet = $('<article>').addClass('tweet');
     let $tweetheader = $('<header>').addClass('tweetheader')
@@ -72,13 +70,19 @@ $(document).ready(function() {
     let $tweetfooter = $('<footer>').addClass('tweetfooter')
 
     let $img = $('<img>').addClass('userlogo').attr('src', tweet.user.avatars.small)
-    let $username = $(`<p>${tweet.user.name}</p>`).addClass('username')
-    let $useraccount = $(`<p>${tweet.user.handle}</p>`).addClass('useraccount')
-    let $tweetcontent = $(`<p>${tweet.content.text}</p>`).addClass('thetweet')
-    let $tweettime = $(`<p>${tweet.created_at}</p>`).addClass('tweettime footerlogo')
+    let $username = $(`<p>`).addClass('username').text(tweet.user.name)
+    let $useraccount = $(`<p>`).addClass('useraccount').text(tweet.user.handle)
+    let $tweetcontent = $(`<p>`).addClass('thetweet').text(tweet.content.text)
+    let $tweettime = $(`<p>`).addClass('tweettime').text(tweet.created_at)
+    let $logodiv = $('<div>').addClass('footerlogos')
+    let $divlogo1 = $('<div>').addClass('logo1')
+    let $divlogo2 = $('<div>').addClass('logo2')
+    let $divlogo3 = $('<div>').addClass('logo3')
+    let $iretweet = $('<i>').addClass("fas fa-retweet")
+    let $iheart = $('<i>').addClass("fas fa-heart")
+    let $iflag = $('<i>').addClass("fas fa-flag")
 
-    // let $tweetcontent1 =  $(`<p>${tweet.content.text}</p>`).text()
-    // let $tweetcontent2 = $tweetcontent1.addClass('thetweet')
+
 
     $tweet.append($tweetheader)
     $tweet.append($tweetbody)
@@ -89,50 +93,45 @@ $(document).ready(function() {
     $tweetheader.append($useraccount)
 
     $tweetbody.append($tweetcontent)
+    $logodiv.append($divlogo1)
+    $logodiv.append($divlogo2)
+    $logodiv.append($divlogo3)
+    $divlogo1.append($iretweet)
+    $divlogo2.append($iheart)
+    $divlogo3.append($iflag)
 
     $tweetfooter.append($tweettime)
+    $tweetfooter.append($logodiv)
 
 
       return $tweet;
-      // return $tweetbody
-      // return $tweetheader;
-      // return $tweetfooter;
   }
 
 loadTweets();
 
 
 $("#textform").submit(function (event) {
+      event.preventDefault();
+      console.log("form submit");
   if($(".textarea").val().length === 0) {
     alert("You can't submit an empty tweet")
   } else if ($('.textarea').val().length > 140) {
     alert("Your tweet can't exceed 140 characters ")
   } else {
-    console.log('hello world');
     $.ajax({
       url: '/tweets/',
       method: 'POST',
       data: $(this).serialize(),
       success: function(data) {
         $('#tweetcontainer').prepend(createTweetElement(data));
+        $('.textarea').val("");
+        $('.counter').text('140');
       }
-
-    });
-      event.preventDefault();
-  }
-  event.preventDefault();
-})
-
+     });
+    }
+  })
 });
 
-
-
-
-
-// var $button = $('.myButton');
-// $button.on('click', function() {
-//   alert('hey');
-// });
 
 
 

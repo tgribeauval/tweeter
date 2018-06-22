@@ -1,0 +1,213 @@
+*
+ * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * https://css-tricks.com/international-box-sizing-awareness-day/
+ * Do not modify these two selectors, please
+ */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/*
+ * Global layout stuff
+ */
+
+body {
+  margin: 0;
+  color: #244751;
+  background-color: #eee;
+  font-family: 'Roboto Condensed', sans-serif;
+
+}
+
+/* These styles will affect the main tag as a whole*/
+
+main {
+  background-color: white;
+  margin: auto;
+  margin-top: 80px;
+  padding-bottom: 200px;
+  padding-top: 140px;
+  width: 1200px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+
+}
+
+/* This will style the tweet section (2nd section) */
+
+main #tweetcontainer {
+margin-top: 15px;
+margin-bottom: 15px;
+
+
+}
+
+/* This will style our whole article within the second section*/
+
+.tweet {
+  border: 2px solid #cdcdcd;
+  border-radius: 15px;
+  width: 600px;
+  height: 300px;
+  margin-bottom: 15px;
+}
+
+/* This will style the header of our article */
+
+.tweetheader {
+  height: 90px;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  color: #657e85;
+  background-color: #f3f3f3
+  border: 2px solid red;
+}
+
+.userlogo {
+  margin-left: 10px;
+  margin-top: 10px;
+  border-radius: 15px;
+  height: 70px;
+}
+
+.username {
+  font-size: 40px;
+  margin-top: 5px;
+  /*margin-left: -110px;*/
+}
+
+.useraccount {
+  color: #a2a2a2;
+  margin-right: 10px;
+  font-size: 20px;
+}
+/* This will style the "body" of our article */
+
+.tweetcontent {
+  min-height: 150px;
+  display: flex;
+  align-content: center;
+  /*border: 1px solid red;*/
+}
+
+.thetweet {
+
+  display: flex;
+  align-items: center;
+  margin-left: 12px;
+  /*margin-bottom: 10px;*/
+  width: 100%;
+
+  font-size: 30px;
+}
+
+/* This will style the "footer" of our article */
+
+.tweetfooter {
+
+ display: flex;
+ /*justify-content: center*/
+ justify-content: space-between;
+ border-top: 2px solid #f2f2f2;
+
+}
+
+.tweettime {
+
+  margin-left: 5px;
+  width: 50%;
+}
+
+.footerlogos {
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 10px;
+
+}
+
+
+/* These style will affect the first section tag */
+
+main .new-tweet {
+
+  border-radius: 5px;
+  padding: 20px;
+  background-color: lightgray;
+  width: 600px;
+  display: flex;
+  align-content: stretch;
+  flex-direction: column;
+
+}
+/* These styles will affect form tag of our new-tweet section*/
+main #textform {
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: space-between;
+
+
+}
+
+/* This will style our H2 */
+
+main .composetweet {
+
+  border-bottom: 2px solid black;
+  margin-top: -15px;
+  font-size: 30px;
+
+}
+
+/* These styles will affect the text area of our container*/
+
+main .textarea {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+/* Thse styles will affect the submit box as a whole*/
+
+main .tweetsubmitbox {
+
+  display: flex;
+  justify-content: space-between;
+  padding: auto;
+
+}
+
+
+/*
+ * Additional CSS can be defined below or in other CSS files, as per instructions
+ */
+
+ article:hover {
+  border: 2px solid #6a6a6a;
+ }
+
+ article .footerlogos {
+  visibility: hidden;
+
+ }
+
+ article:hover .footerlogos {
+  visibility: visible;
+ }
+
+ article:hover .username {
+  color: #234651;
+ }

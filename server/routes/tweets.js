@@ -1,11 +1,10 @@
-// when given the tweet data helpers, configures and returns an express.Router() describing the routes for a simple "tweets" JSON API
+
 
 
 
 "use strict";
 
 const userHelper    = require("../lib/util/user-helper")
-
 const express       = require('express');
 const tweetsRoutes  = express.Router();
 

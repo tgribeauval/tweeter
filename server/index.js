@@ -8,14 +8,19 @@
 
 // Basic express setup:
 
-const PORT = 8080;   //setting up the PORT
-const express = require("express");   // including the express library
+const PORT = 8080;
+const express = require("express");
 const bodyParser = require("body-parser");
-const app = express();     // storing the library within a variable named app.
-const MongoClient = require("mongodb").MongoClient; // creating a variable called MongoClient which is required our mongo database.
+const app = express();
+const MongoClient = require("mongodb").MongoClient;
 const MONGODB_URI = "mongodb://localhost:27017/tweeter";
-app.use(bodyParser.urlencoded({ extended: true }));   // Parses the text as URL encoded data and exposes the resulting object (containing the keys and values) on req.body. If extended is false, you can not post "nested object"
-app.use(express.static("public")); // <--- Ask questiobn about this line.
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"));
+
+
+
+
+
 
 
 MongoClient.connect(MONGODB_URI, (err, db) => {
